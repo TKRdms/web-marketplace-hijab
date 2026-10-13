@@ -1,0 +1,394 @@
+/* ==========================================
+   PRODUCT DETAIL
+========================================== */
+
+.product-detail{
+    padding:140px 8% 80px;
+}
+
+.detail-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.detail-image img{
+    width:100%;
+    border-radius:20px;
+    display:block;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.detail-content small{
+    color:var(--primary);
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+.detail-content h1{
+    font-size:46px;
+    margin:15px 0;
+    line-height:1.2;
+}
+
+.detail-content h2{
+    font-size:38px;
+    color:var(--primary);
+    margin-bottom:18px;
+}
+
+.detail-content p{
+    color:#666;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+/* ==========================================
+   QUANTITY
+========================================== */
+
+.quantity-box{
+    margin-top:25px;
+}
+
+.quantity-box label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.quantity-control{
+    display:flex;
+    align-items:center;
+}
+
+.quantity-control button{
+    width:42px;
+    height:42px;
+    border:1px solid #c9a67c;
+    background:#fff;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.quantity-control button:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+.quantity-control input{
+    width:70px;
+    height:42px;
+    text-align:center;
+    border-top:1px solid #c9a67c;
+    border-bottom:1px solid #c9a67c;
+    border-left:none;
+    border-right:none;
+    font-size:16px;
+    outline:none;
+}
+
+/* hilangkan panah input number */
+
+.quantity-control input::-webkit-inner-spin-button,
+.quantity-control input::-webkit-outer-spin-button{
+    -webkit-appearance:none;
+    margin:0;
+}
+
+.quantity-control input{
+    appearance:textfield;
+    -moz-appearance:textfield;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.detail-buttons{
+    display:flex;
+    gap:18px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.cart-btn,
+.buy-btn{
+    height:56px;
+    padding:0 28px;
+    border-radius:12px;
+    font-size:17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.cart-btn{
+    background:#fff;
+    border:2px solid var(--primary);
+    color:var(--primary);
+    gap:10px;
+    cursor:pointer;
+}
+
+.cart-btn:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+.buy-btn{
+    background:var(--primary);
+    color:#fff;
+}
+
+.buy-btn:hover{
+    background:#8c6541;
+}
+/* ==========================================
+   SPECIFICATION
+========================================== */
+
+.specification{
+    padding:80px 8%;
+    background:#faf8f5;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title small{
+    color:var(--primary);
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+.section-title h2{
+    font-size:36px;
+    margin-top:10px;
+}
+
+.spec-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.spec-card{
+    background:#fff;
+    padding:28px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.spec-card h3{
+    color:var(--primary);
+    margin-bottom:12px;
+}
+
+.spec-card p{
+    color:#666;
+    line-height:1.7;
+}
+
+/* ==========================================
+   FABRIC
+========================================== */
+
+.fabric{
+    padding:90px 8%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.fabric-image img{
+    width:100%;
+    display:block;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.fabric-text small{
+    color:var(--primary);
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+.fabric-text h2{
+    font-size:36px;
+    margin:15px 0;
+}
+
+.fabric-text p{
+    color:#666;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.fabric-text ul{
+    list-style:none;
+    padding:0;
+}
+
+.fabric-text li{
+    margin-bottom:12px;
+    color:#555;
+    font-size:16px;
+}
+
+/* ==========================================
+   RELATED PRODUCTS
+========================================== */
+
+.related-products{
+    padding:80px 8%;
+    background:#faf8f5;
+}
+
+.related-products .product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.related-products .product-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.related-products .product-card:hover{
+    transform:translateY(-8px);
+}
+
+.related-products .product-card img{
+    width:100%;
+    display:block;
+}
+
+.related-products .product-info{
+    padding:18px;
+}
+
+.related-products .product-info h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.related-products .product-info h4{
+    color:var(--primary);
+    font-size:20px;
+}
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:992px){
+
+    .detail-container{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .fabric{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .detail-content h1{
+        font-size:38px;
+    }
+
+    .detail-content h2{
+        font-size:30px;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .product-detail{
+        padding:120px 6% 60px;
+    }
+
+    .specification,
+    .fabric,
+    .related-products{
+        padding:60px 6%;
+    }
+
+    .detail-buttons{
+        flex-direction:column;
+    }
+
+    .cart-btn,
+    .buy-btn{
+        width:100%;
+    }
+
+    .detail-content h1{
+        font-size:32px;
+    }
+
+    .detail-content h2{
+        font-size:28px;
+    }
+
+    .section-title h2{
+        font-size:28px;
+    }
+
+    .fabric-text h2{
+        font-size:28px;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .detail-container{
+        gap:30px;
+    }
+
+    .detail-content h1{
+        font-size:28px;
+    }
+
+    .detail-content h2{
+        font-size:24px;
+    }
+
+    .quantity-control input{
+        width:60px;
+    }
+
+    .quantity-control button{
+        width:40px;
+        height:40px;
+    }
+
+    .spec-card{
+        padding:20px;
+    }
+
+}

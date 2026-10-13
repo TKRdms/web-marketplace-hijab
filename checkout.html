@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Vildya Wear</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fffaf8;
+            color: #292029;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #eee5ef;
+            padding: 25px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #57228b;
+            font-size: 27px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            display: block;
+            color: #8d78a0;
+            font-size: 12px;
+            font-weight: 400;
+            margin-top: -4px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #33263a;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #65269b;
+        }
+
+        .cart-btn {
+            border: 1px solid #6a32a0;
+            color: #6a32a0;
+            padding: 9px 18px;
+            border-radius: 8px;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1150px;
+            margin: 45px auto 70px;
+        }
+
+        .page-title {
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            color: #512080;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .page-title p {
+            color: #777;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #eee4ef;
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 4px 15px rgba(75, 35, 90, 0.04);
+        }
+
+        .card h2 {
+            font-size: 19px;
+            color: #55228a;
+            margin-bottom: 23px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border: 1px solid #ddd1e2;
+            border-radius: 8px;
+            padding: 12px 13px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: .2s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #7436a4;
+            box-shadow: 0 0 0 3px rgba(116, 54, 164, .08);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .payment-option {
+            border: 1px solid #ded2e4;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .payment-option:hover {
+            border-color: #7a3ba8;
+        }
+
+        .payment-option input {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .payment-title {
+            font-weight: 600;
+            color: #35233d;
+        }
+
+        .payment-description {
+            font-size: 13px;
+            color: #777;
+            margin-left: 24px;
+            margin-top: 4px;
+        }
+
+        .order-item {
+            display: flex;
+            gap: 14px;
+            padding-bottom: 18px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #eee7ef;
+        }
+
+        .order-item img {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 9px;
+            background: #f5eef7;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-info h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .item-info p {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 3px;
+        }
+
+        .item-price {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 13px 0;
+            font-size: 14px;
+        }
+
+        .total {
+            border-top: 1px solid #e7dfe9;
+            margin-top: 18px;
+            padding-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 19px;
+            font-weight: 700;
+            color: #57228b;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            background: #642b97;
+            color: white;
+            padding: 14px;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: .2s;
+        }
+
+        .submit-btn:hover {
+            background: #4f1e7c;
+            transform: translateY(-1px);
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #777;
+            padding: 25px 0;
+        }
+
+        .required {
+            color: #d44;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-top: 1px solid #eee5ef;
+            color: #888;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .container {
+                width: 92%;
+                margin-top: 30px;
+            }
+
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        Vildya Wear
+        <span>Premium Hijab Collection</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="cart-btn">🛒 Cart</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+        <h1>Checkout</h1>
+        <p>Lengkapi data di bawah untuk menyelesaikan pesanan kamu.</p>
+    </div>
+
+    <form id="checkoutForm">
+
+        <div class="checkout-grid">
+
+            <!-- DATA PEMBELI -->
+            <div>
+
+                <div class="card">
+                    <h2>Informasi Pengiriman</h2>
+
+                    <div class="form-group">
+                        <label>
+                            Nama Lengkap <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Masukkan nama lengkap"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Nomor HP <span class="required">*</span>
+                        </label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="08xxxxxxxxxx"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Alamat Lengkap <span class="required">*</span>
+                        </label>
+                        <textarea
+                            id="address"
+                            placeholder="Masukkan alamat lengkap"
+                            required
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 25px;">
+                    <h2>Metode Pembayaran</h2>
+
+                    <label class="payment-option">
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Transfer Bank"
+                            checked
+                        >
+                        <span class="payment-title">Transfer Bank</span>
+                        <div class="payment-description">
+                            Nomor rekening akan dikirim melalui WhatsApp
+                            setelah pesanan dikonfirmasi.
+                        </div>
+                    </label>
+
+                    <label class="payment-option">
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="QRIS"
+                        >
+                        <span class="payment-title">QRIS</span>
+                        <div class="payment-description">
+                            Kode QRIS akan dikirim melalui WhatsApp
+                            setelah pesanan dikonfirmasi.
+                        </div>
+                    </label>
+
+                    <label class="payment-option">
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Cash On Delivery (COD)"
+                        >
+                        <span class="payment-title">Cash On Delivery (COD)</span>
+                        <div class="payment-description">
+                            Bayar saat pesanan diterima.
+                        </div>
+                    </label>
+                </div>
+
+            </div>
+
+
+            <!-- RINGKASAN -->
+            <div>
+
+                <div class="card">
+                    <h2>Ringkasan Pesanan</h2>
+
+                    <div id="orderItems">
+                        <!-- Produk dimasukkan lewat JavaScript -->
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <strong id="subtotal">Rp0</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Ongkir</span>
+                        <strong id="shipping">Rp10.000</strong>
+                    </div>
+
+                    <div class="total">
+                        <span>Total</span>
+                        <span id="total">Rp10.000</span>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        Konfirmasi Pesanan
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</main>
+
+<footer>
+    © 2026 Vildya Wear. All rights reserved.
+</footer>
+
+
+<script>
+    /*
+    ==========================================
+    MENGAMBIL DATA CART
+    ==========================================
+    */
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const orderItems = document.getElementById("orderItems");
+    const subtotalElement = document.getElementById("subtotal");
+    const totalElement = document.getElementById("total");
+
+    const shipping = 10000;
+
+
+    function formatRupiah(number) {
+        return new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR",
+            minimumFractionDigits: 0
+        }).format(number);
+    }
+
+
+    function displayCart() {
+
+        if (cart.length === 0) {
+
+            orderItems.innerHTML = `
+                <div class="empty-cart">
+                    Keranjang kamu masih kosong.
+                </div>
+            `;
+
+            subtotalElement.textContent = formatRupiah(0);
+            totalElement.textContent = formatRupiah(shipping);
+
+            return;
+        }
+
+
+        let subtotal = 0;
+
+        orderItems.innerHTML = "";
+
+
+        cart.forEach(item => {
+
+            const price = Number(item.price) || 0;
+            const quantity = Number(item.quantity) || 1;
+
+            const itemTotal = price * quantity;
+
+            subtotal += itemTotal;
+
+
+            const itemElement = document.createElement("div");
+
+            itemElement.className = "order-item";
+
+            itemElement.innerHTML = `
+                <img
+                    src="${item.image || 'images/placeholder.jpg'}"
+                    alt="${item.name || 'Produk'}"
+                >
+
+                <div class="item-info">
+                    <h3>${item.name || 'Produk'}</h3>
+
+                    <p>
+                        ${item.color ? item.color + " • " : ""}
+                        ${quantity} × ${formatRupiah(price)}
+                    </p>
+                </div>
+
+                <div class="item-price">
+                    ${formatRupiah(itemTotal)}
+                </div>
+            `;
+
+            orderItems.appendChild(itemElement);
+        });
+
+
+        const total = subtotal + shipping;
+
+        subtotalElement.textContent = formatRupiah(subtotal);
+        totalElement.textContent = formatRupiah(total);
+    }
+
+
+    displayCart();
+
+
+    /*
+    ==========================================
+    KONFIRMASI PESANAN
+    ==========================================
+    */
+
+    document
+        .getElementById("checkoutForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            if (cart.length === 0) {
+                alert("Keranjang kamu masih kosong.");
+                return;
+            }
+
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const phone =
+                document.getElementById("phone").value.trim();
+
+            const address =
+                document.getElementById("address").value.trim();
+
+            const payment =
+                document.querySelector(
+                    'input[name="payment"]:checked'
+                ).value;
+
+
+            /*
+            Validasi nomor HP
+            */
+
+            if (!/^08[0-9]{8,13}$/.test(phone)) {
+
+                alert(
+                    "Nomor HP tidak valid. Contoh: 081234567890"
+                );
+
+                return;
+            }
+
+
+            /*
+            Hitung harga
+            */
+
+            let subtotal = 0;
+
+            cart.forEach(item => {
+
+                subtotal +=
+                    (Number(item.price) || 0) *
+                    (Number(item.quantity) || 1);
+
+            });
+
+
+            const total = subtotal + shipping;
+
+
+            /*
+            Buat nomor pesanan
+            */
+
+            const orderNumber =
+                "VW-" +
+                Date.now().toString().slice(-8);
+
+
+            /*
+            Simpan pesanan
+            */
+
+            const order = {
+
+                orderNumber: orderNumber,
+
+                date: new Date().toLocaleString(
+                    "id-ID",
+                    {
+                        dateStyle: "long",
+                        timeStyle: "short"
+                    }
+                ),
+
+                customer: {
+                    name: name,
+                    phone: phone,
+                    address: address
+                },
+
+                payment: payment,
+
+                items: cart,
+
+                subtotal: subtotal,
+
+                shipping: shipping,
+
+                total: total
+            };
+
+
+            localStorage.setItem(
+                "vildyaOrder",
+                JSON.stringify(order)
+            );
+
+
+            /*
+            Kosongkan cart
+            */
+
+            localStorage.removeItem("cart");
+
+
+            /*
+            Pindah ke halaman konfirmasi
+            */
+
+            window.location.href =
+                "confirmation.html";
+        });
+</script>
+
+</body>
+</html>
